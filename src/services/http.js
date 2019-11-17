@@ -1,5 +1,5 @@
 import axios from "axios";
-import moment from "../../../../../../AppData/Local/Microsoft/TypeScript/3.6/node_modules/moment/moment";
+import moment from 'moment';
 
 export const getHeaders = () => {
     let token = localStorage.getItem("token");

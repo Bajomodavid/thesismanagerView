@@ -46,6 +46,19 @@ class Search extends Component {
     });
   }
 
+  renderCategories() {
+    http(
+      'misc/categories'
+    )
+    .then((r) => {
+      console.log(r)
+      localStorage.setItem('categories', r.data.message);
+    })
+  }
+
+  renderFavorites() {
+
+  }
 
   render() {
     return (
