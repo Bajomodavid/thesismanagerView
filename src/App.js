@@ -8,6 +8,7 @@ import ForgotPassword from './auth/forgot_password';
 import ChangePassword from './auth/change_password';
 import ResetPassword from './auth/reset_password';
 import logout from './auth/logout';
+import Details from './library/details';
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
           <div>
             <Route exact  path={"/"} component={Landing}/>
             <Route path="/search" component={Search}/>
+            <Route path="/details/:book" component={Details}/>
             <Route path="/auth/login" component={Login}/>
             <Route path="/auth/logout" component={logout}/>
             <Route path="/auth/forgot" component={ForgotPassword}/>

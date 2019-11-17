@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import "./index.css";
 import BookCover from "../book_cover";
 import { http } from "../../services/http";
-import { Row, Col } from "antd";
+import { Row, Col, Spin } from "antd";
+import { NavLink } from 'react-router-dom';
 
 class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      books: []
+      books: <Spin className='spinner'/>
     };
   }
 
@@ -64,7 +65,19 @@ class Search extends Component {
   // }
 
   renderFavorites() {
-
+    http(
+      'misc/favorites'
+    )
+    .then((r) => {
+      console.log(r)
+      let a = r.data.message.map((r, i) => 
+        <li>
+          <NavLink to={`/favorite/${r.id}`}>
+            {}
+          </NavLink>
+        </li>
+      );
+    })
   }
 
   render() {
@@ -114,27 +127,11 @@ class Search extends Component {
           <div className='side-nav'>
             <div className='group'>
               <div className='title'>
-                <h5>CATEGORY</h5>
-              </div>
-              <div className='links'>
-                <ul>
-                  <li>Category 1</li>
-                  <li>Category 2</li>
-                  <li>Category 3</li>
-                  <li>Category 4</li>
-                </ul>
-              </div>
-            </div>
-            <div className='group'>
-              <div className='title'>
                 <h5>BOOKS</h5>
               </div>
               <div className='links'>
                 <ul>
-                  <li>Book 1</li>
-                  <li>Book 2</li>
-                  <li>Book 3</li>
-                  <li>Book 4</li>
+                  {this.state.favorites}
                 </ul>
               </div>
             </div>

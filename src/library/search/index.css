@@ -149,6 +149,11 @@ button:hover{
     padding: 30px;
     display: flex;
 }
+
+.spinner{
+    margin: auto;
+    text-align: center;
+}
 .module-body .document{
     display: flex;
     flex-wrap: wrap;

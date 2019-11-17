@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './index.css';
+import { NavLink } from 'react-router-dom';
 import { Card } from 'antd';
 
 class BookCover extends Component {
@@ -20,6 +21,7 @@ class BookCover extends Component {
 
   render() {
     return (
+      <NavLink to={`details/${this.props.book.id}`}>
         <div className="card">
             <div className="details">
                 <p className="title">{this.props.book.tittle}</p>
@@ -31,6 +33,7 @@ class BookCover extends Component {
                 <div className="dept">{this.process_name(this.props.book.department.name, 20)}</div>
             </div>
         </div>
+        </NavLink>
     );
   }
 }
