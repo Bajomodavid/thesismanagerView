@@ -141,9 +141,9 @@ class Search extends Component {
           </div>
           <div className='card-module'>
             <div className='module-body'>
-              <Col span={4}>
-                {this.state.books}
-              </Col>
+                <div className='document'>
+                  {this.state.books}
+                </div>
             </div>
           </div>
         </div>

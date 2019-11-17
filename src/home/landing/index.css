@@ -27,15 +27,25 @@ div.banner{
     object-fit: contain;
     margin-bottom: 1em;
 }
+.banner .title{
+    color: white;
+}
 .banner .title h1{
     font-size: 3em;
     line-height: 0;
+    color:white;
+}
+.banner .title h3{
+    color:white;
 }
 
 .banner .action{
     color: white;
     width: 50%;
     margin: 5em auto;
+}
+.banner .action h1{
+    color: white;
 }
 
 .banner .action hr{

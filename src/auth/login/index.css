@@ -17,6 +17,7 @@ div.login-modal{
 }
 .login-modal .title{
    letter-spacing: .2em;
+   color:white;
 }
 .login-modal .form{
     display: flex;
@@ -30,6 +31,8 @@ div.login-modal{
 .login-modal .form h2{
    padding: 0;
    margin: 0;
+   color:white;
+   font-weight: bold;
 }
 
 .login-modal .form input{

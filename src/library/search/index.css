@@ -10,6 +10,9 @@ body, html{
 }
 .top-nav{
     background-color: white;
+    position:fixed;
+    width: 100%;
+    z-index:99;
 }
 .top-nav nav{
     display: flex;
@@ -18,9 +21,13 @@ body, html{
 
 nav .brand{
     color:white;
-    flex: 0 0 200px;
+    flex: 0 0 180px;
     background-color: purple;
     text-align: center;
+}
+
+nav .brand h2{
+    color:white;
 }
 
 nav .search{
@@ -88,7 +95,8 @@ nav .search button{
     background-position: center, center;
     color: rgb(189, 189, 189);
     padding: 10px;
-    position: absolute;
+    position: fixed;
+    top:11.5em;
 
 }
 .side-nav ul{
@@ -102,6 +110,7 @@ nav .search button{
 }
 .side-nav .title h5{
     margin-top: 0;
+    color:white;
 }
 .side-nav ul li{
     list-style-type: none;
@@ -114,6 +123,7 @@ button:hover{
 .card-module{
     font-family: sans-serif;
     margin-left: 200px;
+    padding-top: 11.5em;
 }
 
 .module-head{
@@ -139,7 +149,9 @@ button:hover{
     padding: 30px;
     display: flex;
 }
-
-
+.module-body .document{
+    display: flex;
+    flex-wrap: wrap;
+}
 
 
