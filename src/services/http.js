@@ -35,8 +35,8 @@ export const getUploadHeaders = () => {
 }
 
 
-export const baseUrl = "http://thesisapi.test/api/v1/";
-// export const baseUrl = "http://localhost:8000/api/v1/";
+// export const baseUrl = "http://thesisapi.test/api/v1/";
+export const baseUrl = " http://2547bf3e.ngrok.io/api/v1/";
 
 export const siteUrl = "http://thesisapi.test/";
 // export const siteUrl = "http://localhost:8000/";

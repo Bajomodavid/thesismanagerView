@@ -46,15 +46,22 @@ class Search extends Component {
     });
   }
 
-  renderCategories() {
-    http(
-      'misc/categories'
-    )
-    .then((r) => {
-      console.log(r)
-      localStorage.setItem('categories', r.data.message);
-    })
-  }
+  // renderCategories() {
+  //   http(
+  //     'misc/categories'
+  //   )
+  //   .then((r) => {
+  //     console.log(r)
+  //     localStorage.setItem('categories', r.data.message);
+
+  //   })
+  // }
+
+  // displayCategories(categories) {
+  //   let c = categories.map(a =>
+  //     <NavLin> </NavLin>
+  //   );
+  // }
 
   renderFavorites() {
 
