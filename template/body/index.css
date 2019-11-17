@@ -1,0 +1,190 @@
+body, html{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.module{
+    background-color: rgb(243, 243, 243);
+    height: 100%;
+}
+.top-nav{
+    background-color: white;
+}
+.top-nav nav{
+    display: flex;
+    justify-content: stretch;
+}
+
+nav .brand{
+    color:white;
+    flex: 0 0 200px;
+    background-color: purple;
+    text-align: center;
+}
+
+nav .search{
+    flex:1;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    align-self: center;
+}
+
+nav .search label{
+    font-size: 0.8em;
+}
+nav .search input{
+    padding:5px 15px;
+    width: 100%;
+    border: unset;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: rgb(189, 189, 189);
+}
+nav .search .row-one{
+    width: 100%;
+    margin: 0px 2em;
+}
+nav .search .row-two{
+    width: 100%;
+    margin: 0px 2em;
+}
+nav .search select{
+    padding:5px 15px;
+    width: 100%;
+    border: unset;
+    margin-top: 5px;
+    background-color: rgb(189, 189, 189);
+}
+nav .search button{
+    padding:5px 15px;
+    width: 100%;
+    border: 1px solid rgba(128, 0, 128, 0.651);
+    margin: 2em auto;
+    color:purple;
+    background-color: white;
+    cursor: pointer;
+    border-radius: .5em;
+    position: relative;
+    right:-50%;
+}
+.user{
+    text-align: center;
+}
+.user img{
+    width:50px;
+    height:50px;
+    display: block;
+    margin: auto auto;
+    border-radius: 50%;
+}
+.side-nav{
+    height: 78%;
+    width: 180px    ;
+    background-image: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(2,0,36,1) 60%,rgba(2,0,36,0.9) 80%, rgba(2,0,36,0.4) 100%), url('bridge.jpg');
+    background-size:cover;
+	background-repeat:no-repeat;
+    background-position: center, center;
+    color: rgb(189, 189, 189);
+    padding: 10px;
+    position: absolute;
+
+}
+.side-nav ul{
+    margin-top: 0;
+}
+.side-nav .group{
+    margin-bottom: 50px;
+}
+.side-nav .title{
+    padding-top: 20px;
+}
+.side-nav .title h5{
+    margin-top: 0;
+}
+.side-nav ul li{
+    list-style-type: none;
+    margin-bottom: 15px;
+}
+
+button:hover{
+    opacity: .5;
+}
+.card-module{
+    font-family: sans-serif;
+    margin-left: 200px;
+}
+
+.module-head{
+    display: flex;
+    padding: 2em 4em;
+    justify-content: space-between;
+    border-bottom:1px solid  rgba(195, 195, 195, .5);
+}
+
+.module-head .sort-type{
+    font-size: 1.4em;
+    font-weight: bold;
+}
+.module-head button{
+    border: unset;
+    background-color: rgb(240, 240, 240);
+    padding: 5px 15px;
+    margin: 0px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.module-body{
+    padding: 30px;
+}
+
+
+
+
+
+
+.card{
+    width: 13em;
+    height: 20em;
+    border: 1px solid rgba(195, 195, 195, .5);
+    border-radius: 2px;
+    padding: 0.5em;
+    overflow: hidden;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.card .details{
+    width: inherit;
+    height: 17em;
+    background-color: purple;
+    border-radius: 1px;
+    text-align: center;
+    cursor: pointer;
+    color:white;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.card .details:hover{
+    opacity: .7;
+}
+
+.card .info{
+    margin-top: 0.6em;
+    color: rgb(90, 90, 90);
+    font-weight: bold;
+}
+
+.card .info .dept{
+    margin-top: 0.2em;
+    font-size: 0.8em;
+    color: rgb(126, 125, 125);
+}
+
+.card .details .title{
+    margin:0;
+    padding: 0.5em;
+    padding-top: 2em;
+}
+

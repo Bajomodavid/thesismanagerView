@@ -119,7 +119,7 @@ class LibraryBooks extends Component {
   }
 
   renderBooks() {
-    let array = this.props.books;
+    let array = books;
     if(array.lenght < 1 || array === undefined) {
         this.setState({
             books: 
@@ -138,6 +138,7 @@ class LibraryBooks extends Component {
             {/* <Button theme="secondary">Secondary</Button> */}
         </div>
     );
+    console.log(a)
     this.setState({
         books: a,
     });
@@ -146,7 +147,7 @@ class LibraryBooks extends Component {
   render() {
     return (
         <div className='library-books'>
-            {books}
+            {this.state.books}
         </div>
     );
   }

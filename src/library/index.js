@@ -99,9 +99,11 @@ class LibraryScreen extends Component {
                                 </Form.Item>
                             </Form>
                         </div>
+                        
+                            <LibraryBooks />
+                        
                     </Row>
                     <Row>
-                        
                     </Row>
                 </Col>
                 
