@@ -32,8 +32,15 @@ class Details extends Component {
         let d = r.data.message;
         let a = 
         <div>
-            <h4>{d.tittle}</h4>
+          <div class="details">
+           <div className="back">
+              <button>Back to library</button>
+           </div>
+          <h4>{d.tittle}</h4>
             <p dangerouslySetInnerHTML={{__html: d.abstract}}></p>
+            
+          </div>
+            
         </div>;
 
         this.setState({details: a});

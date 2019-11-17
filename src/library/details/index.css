@@ -3,3 +3,70 @@
     margin-left: 50em;
     text-align: center;
 }
+body,html{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(80, 1, 80);
+}
+div.details{
+    width: 75%;
+    height: 500px;
+    background-color: white;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    position: fixed;
+    top:5%;
+    left: 50%;
+    margin-left: -37.5%;
+    color: rgb(66, 66, 66);
+    text-align: center;
+}
+.details .title{
+   letter-spacing: .2em;
+}
+.details .form{
+    display: flex;
+    border-bottom: 2px solid purple;
+    width: 40%;
+    margin: auto auto;
+    margin-top: 30px;
+    padding: 10px;
+    justify-content: space-between;
+    margin-top: 7em;
+    color:purple;
+}
+.details .form h2{
+   padding: 0;
+   margin: 0;
+}
+
+.details .form input{
+   background-color: unset;
+   height: 2em;
+   width: 35em;
+   padding: 0 20px;
+   color:rgb(66, 66, 66);
+   border:unset
+}
+
+.button{
+   margin-top: 3em;
+}
+.button button{
+   width: 35em;
+   padding: 10px 0px;
+   background-color: purple;
+   border: unset;
+   color:white;
+   border-radius: 10px;
+   cursor: pointer;
+}
+.button button:hover{
+    opacity:.5;
+ }
+ .return-login{
+    margin-top: 3em;
+ }
+ .return-login a{
+     text-decoration: none;
+     color:purple;
+ }
