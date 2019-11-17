@@ -32,9 +32,13 @@ class Details extends Component {
         let d = r.data.message;
         let a = 
         <div>
-          <div class="details">
+          <div className="details">
            <div className="back">
               <button>Back to library</button>
+           </div>
+           <div className="category">
+              <h3>{d.session.name} | { d.category.name}</h3>
+              <h1>{d.tittle}</h1>
            </div>
           <h4>{d.tittle}</h4>
             <p dangerouslySetInnerHTML={{__html: d.abstract}}></p>
