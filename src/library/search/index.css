@@ -148,7 +148,6 @@ button:hover{
 .module-body{
     padding: 30px;
     display: flex;
-    min-height: 80%;
 }
 
 .spinner{

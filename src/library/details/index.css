@@ -4,7 +4,7 @@
     text-align: center;
 }
 
-div.details{
+div.single-detail{
     width: 75%;
     height: 500px;
     background-color: white;
@@ -17,10 +17,10 @@ div.details{
     margin-left: -37.5%;
     color: rgb(66, 66, 66);
 }
-.details .back {
+.single-detail .back {
     margin-bottom: 5em;
 }
-.details .back button{
+.single-detail .back button{
     background-color: purple;
     color:white;
     border-radius: 5px;

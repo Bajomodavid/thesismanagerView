@@ -32,7 +32,7 @@ class Details extends Component {
         let d = r.data.message;
         let a = 
         <div>
-          <div className="details">
+          <div className="single-detail">
            <div className="back">
               <button>Back to library</button>
            </div>
