@@ -1,0 +1,271 @@
+html, body {
+  height: 100%;
+}
+
+.trigger {
+    font-size: 18px;
+    line-height: 64px;
+    padding: 0 24px;
+    cursor: pointer;
+    transition: color .3s;
+  }
+  
+  .trigger:hover {
+    color: #1890ff;
+  }
+
+  .sider {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;  
+    z-index: 1;
+  }
+  
+  .logo {
+    height: 32px;
+    background: rgba(255,255,255,.2);
+    margin: 16px;
+  }
+
+  .pay {
+    align-self: center;
+    justify-content: center;
+    justify-self: center;
+    position: relative;
+    text-align: center;
+    margin-top: 5%;
+    padding: 24;
+    height:100%;
+    margin-bottom: 10%;
+  }
+
+  .payButton {
+    background-color: #1890ff;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    padding: 12px 28px;
+  }
+  @media only screen and (max-width: 600px) {
+    .pay {
+      align-self: center;
+      justify-content: center;
+      justify-self: center;
+      position: relative;
+      text-align: center;
+      margin-top: 10%;
+      padding: 24;
+      height:100%;
+      margin-bottom: 30%;
+    }
+
+    .bank-cards {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 3%;
+    }
+
+    .edit-note {
+      width: 100%;
+    }
+    .create-note {
+      margin-top: 3%;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .create-account {
+      margin-top: 3%;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .content {
+      position: relative;
+      margin: 24px 16px;
+      padding: 24;
+      height:100%;
+      margin-bottom: 4em;
+    }
+
+    .main{
+      margin-bottom: 15%; 
+      height: 100%;
+      overflow: auto;
+      z-index: 0;
+    }
+        
+    .account-select {
+      max-width: 90%;
+    }
+      
+    
+
+    .table {
+      margin: 24px 16px;
+      padding: 24;
+      min-height: 280px;
+      overflow-x: auto;
+      margin-bottom: 5%; 
+    }
+    .inv-card {
+      width: 100%;
+      margin: 0.3em;
+    }
+
+    
+  .pin {
+    margin-top: 10%;
+    width: 100%;
+    margin-bottom: 10%;
+  }
+    
+  }
+
+  @media only screen and (min-width: 768px) {  
+
+    .main{
+      margin-bottom: 5%; 
+      height: 100%;
+      overflow: auto;
+      z-index: 0;
+    }
+
+    .bank-cards {
+      width: 40%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 3%;
+    }
+
+    .profile-top {
+      display: flex;
+    }
+    .profile-top .card {
+      width: 40%;
+      margin-top: 3%; 
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .profile-top .pass {
+      width: 30%;
+      margin-top: 3%; 
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .profile-top .pass {
+      width: 50%;
+      margin-top: 3%; 
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .create-note {
+      margin-top: 3%;
+      width: 20%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .create-account {
+      width: 20%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 24px 16px;
+      padding: 24;
+      height:100%;
+    }
+
+    .edit-note {
+      width: 40%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .account-select {
+      max-width: 20%;
+    }
+
+    .pin {
+      margin-top: 3%;
+      width: 30%;
+      margin-bottom: 3%;
+    }
+
+    .table {
+      margin: 24px 16px;
+      padding: 24;
+      min-height: 280px;
+      overflow-x: auto;
+      margin-bottom: 5%; 
+    }
+    .inv-card {
+      margin: 0.5em;
+      width: 32%;
+
+    }
+    .hero {
+      width: 100%; 
+      display: grid; 
+      grid-auto-columns: 40% 45%;
+    }
+    
+  }
+
+  .loader {
+    text-align: center;
+    background: rgba(0,0,0,0.05);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    padding: 30px 50px;
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .details {
+    margin-left: 5%;
+    margin-right: 5%;
+
+  }
+  .steps-content {
+    margin-top: 16px;
+    border: 1px dashed #e9e9e9;
+    border-radius: 6px;
+    background-color: #fafafa;
+    min-height: 200px;
+    text-align: center;
+    padding-top: 80px;
+  }
+  
+  .dashboard-logo {
+    display: flex;
+    resize: both;
+    max-width: 4.6em;
+    max-height: 8.6em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+    }
+  .steps-action {
+    margin-top: 24px;
+  }
+  
+  .invest {
+    margin: 20px;
+    height: 100%;
+  }
+  
+  .state-select {
+    width: 40em;
+    margin-right: 5%; 
+}

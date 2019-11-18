@@ -77,6 +77,7 @@ nav .search button{
     right:-50%;
 }
 .user{
+    margin-top: 3em;
     text-align: center;
 }
 .user img{
@@ -159,4 +160,11 @@ button:hover{
     flex-wrap: wrap;
 }
 
-
+.logout {
+    margin-top: 5em;
+    padding: .5em;
+    border-radius: .2em;
+    background-color: #fff;
+    color: purple;
+    box-shadow: .2em .2em .2em rgba(17, 4, 4, 0.603);
+}

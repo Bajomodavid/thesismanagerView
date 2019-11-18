@@ -35,8 +35,8 @@ export const getUploadHeaders = () => {
 }
 
 
-// export const baseUrl = "http://thesisapi.test/api/v1/";
-export const baseUrl = " http://2547bf3e.ngrok.io/api/v1/";
+export const baseUrl = "http://thesisapi.test/api/v1/";
+// export const baseUrl = " http://2547bf3e.ngrok.io/api/v1/";
 
 export const siteUrl = "http://thesisapi.test/";
 // export const siteUrl = "http://localhost:8000/";
@@ -56,13 +56,28 @@ export const profileAvatar = siteUrl+'assets/images/avatars/noavatar.png';
 export const http = (url, method = 'GET', data = null) => {
     
     let tokenCheck = localStorage.getItem('token_expires');
-    if(tokenCheck < moment.now()) localStorage.clear();
+    // if(tokenCheck < moment.now()) localStorage.clear();
     return(
         axios({
             method: method,
             url: baseUrl + url,
             headers: getHeaders(),
             data: data,
+        })
+    );
+}
+
+export const httpDownload = (url, method = 'GET', data = null) => {
+    
+    let tokenCheck = localStorage.getItem('token_expires');
+    // if(tokenCheck < moment.now()) localStorage.clear();
+    return(
+        axios({
+            method: method,
+            url: baseUrl + url,
+            headers: getHeaders(),
+            data: data,
+            responseType: 'blob',
         })
     );
 }

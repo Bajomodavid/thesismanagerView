@@ -28,3 +28,15 @@ div.single-detail{
     border: unset;
     cursor: pointer;
 }
+.download-button {
+    color: purple;
+    background-color: white;
+    padding: .5em;
+    border-radius: 1em;
+    border: none;
+    box-shadow: .2em .2em .2em rgba(128, 0, 128, 0.651);
+    width: 20em;
+    margin-top: 2em;
+    margin-left: 28em;
+    margin-right: auto;
+}
