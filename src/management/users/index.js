@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table, Badge, Button } from 'antd';
+import { Table, Button } from 'antd';
 import '../style.css';
 import { NavLink } from "react-router-dom";
 import { http } from '../../services/http';

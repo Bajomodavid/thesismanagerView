@@ -12,94 +12,7 @@ class CreateUser extends Component {
         super(props);
         this.state = {
             categories: '',
-            category: '',
-            sessions: '',
-            session: '',
-            departments: '',
-            department: '',
-            author: '',
-            tittle: '',
-            public: 0,
-            selectedFile: null,
         }
-    }
-
-    getSessions() {
-        http(
-            `admin/sessions`,
-        )
-        .then((r) => {
-            this.setState({sessions: this.renderSessions(r.data.message)})
-        })
-        .catch((e) => {
-            console.log(e)
-        })
-    }
-
-    renderSessions(data) {
-        let d = data.map((a, i) => 
-            <Option value={a.id} key={i}>
-                {a.name}
-            </Option>
-        )
-
-        return (
-            d
-        )
-    }
-
-    getCategories() {
-        http(
-            `admin/categories`,
-        )
-        .then((r) => {
-            this.setState({categories: this.renderCategories(r.data.message)})
-        })
-        .catch((e) => {
-            console.log(e)
-        })
-    }
-
-    renderCategories(data) {
-        let d = data.map((a, i) => 
-            <Option value={a.id} key={i}>
-                {a.name}
-            </Option>
-        )
-
-        return (
-            d
-        )
-    }
-
-    getDepartments() {
-        http(
-            `admin/departments`,
-        )
-        .then((r) => {
-            this.setState({sessions: this.renderDepartments(r.data.message)})
-        })
-        .catch((e) => {
-            console.log(e)
-        })
-    }
-
-    renderDepartments(data) {
-        let d = data.map((a, i) => 
-            <Option value={a.id} key={i}>
-                {a.name}
-            </Option>
-        )
-
-        return (
-            d
-        )
-    }
-
-    componentDidMount() {
-        this.getSessions()
-        this.getCategories()
-        // this.getDepartments()
     }
 
     handleSubmit = (e) => {
@@ -108,23 +21,17 @@ class CreateUser extends Component {
         this.props.form.validateFields((err, values) => {
             console.log(values)
           if (!err) {
-            const data = new FormData()
-            data.append('book', this.state.selectedFile)
-            data.append('author', values.author)
-            data.append('title', values.title)
-            data.append('session_id', values.session_id)
-            data.append('category_id', values.category_id)
-            data.append('public', values.public)
-            axios.post(`${baseUrl}admin/books`, data, { 
-                // receive two    parameter endpoint url ,form data
-            })
+            http(
+                'admin/users',
+                'POST',
+                {
+                    name: values.name,
+                    email: values.email,
+                }
+            )
             .then((r) => {
                 console.log(r);
-                message.success(r.data.message)
-                setTimeout(
-                    this.props.history.push('/admin/books'),
-                    1000
-                );
+                message.success('User created with password: ' + r.data.message.password, 20)
             })
             .catch((e) => {
                 console.log(e.response);
@@ -150,91 +57,29 @@ class CreateUser extends Component {
                     <Card className="edit-note">
                         <Form onSubmit={this.handleSubmit} style={{width: "100%", justifyContent: "center"}}>
                             <Form.Item>
-                                <h2> Upload Book</h2> <Button> <NavLink to="/admin/books" style={{color: 'purple'}}><Icon type="caret-left" /> Go Back </NavLink></Button>
+                                <h2> Create User</h2> <Button> <NavLink to="/admin/books" style={{color: 'purple'}}><Icon type="caret-left" /> Go Back </NavLink></Button>
                             </Form.Item>
+
                             <Form.Item>
-                                {getFieldDecorator('author', {
-                                    rules: [{ required: true, message: 'Please Input an author name!' }],
-                                    initialValue: this.state.author
+                                {getFieldDecorator('email', {
+                                    rules: [{ required: true, message: 'Please Input an email!' }],
                                     
                                 })(
-                                    <Input placeholder="Author" />
+                                    <Input type='email' placeholder="Email" />
                                 )}
                             </Form.Item>
 
                             <Form.Item>
-                                {getFieldDecorator('book', {
-                                    rules: [{ required: true, message: 'Please Input an author name!' }],
-                                    initialValue: this.state.author
+                                {getFieldDecorator('name', {
+                                    rules: [{ required: true, message: 'Please Input a name!' }],
                                     
                                 })(
-                                    <Input type='file' placeholder="Book" />
+                                    <Input placeholder="Name" />
                                 )}
                             </Form.Item>
 
                             <Form.Item>
-                                {getFieldDecorator('tittle', {
-                                    rules: [{ required: true, message: 'Please Input a title!' }],
-                                    initialValue: this.state.tittle
-                                    
-                                })(
-                                    <Input placeholder="Title" />
-                                )}
-                            </Form.Item>
-
-                            <Form.Item>
-                                {getFieldDecorator('session_id', {
-                                    rules: [{ required: true, message: 'Please Select a Session!' }],
-                                    initialValue: ''
-                                })(
-                                    <Select>
-                                        <Option value=''>
-                                            Select Session
-                                        </Option>
-                                        {this.state.sessions !== "" && this.state.sessions}
-                                    </Select>
-                                )}
-                            </Form.Item>
-
-                            <Form.Item>
-                                {getFieldDecorator('category_id', {
-                                    rules: [{ required: true, message: 'Please Select a Category!' }],
-                                    initialValue: ''
-                                })(
-                                    <Select>
-                                        <Option value=''>
-                                            Select Category
-                                        </Option>
-                                        {this.state.categories !== "" && this.state.categories}
-                                    </Select>
-                                )}
-                            </Form.Item>
-
-                            {/* <Form.Item>
-                                {getFieldDecorator('category_id', {
-                                    rules: [{ required: true, message: 'Please Select a Department!' }],
-                                    initialValue: this.state.department
-                                })(
-                                    <Select>
-                                        {this.state.department !== "" && this.state.department}
-                                    </Select>
-                                )}
-                            </Form.Item> */}
-
-                            <Form.Item>
-                                {getFieldDecorator('public', {
-                                    rules: [{ required: true, message: 'Please select a status!' }],
-                                    initialValue: this.state.public
-                                })(
-                                    <Select>
-                                        <Option value={0}> Protected </Option>
-                                        <Option value={1}> Public </Option>
-                                    </Select>
-                                )}
-                            </Form.Item>
-
-                            <Form.Item>
-                                <Button type="primary" htmlType="submit" style={{width: "100%"}}>Upload Thesis</Button>    
+                                <Button type="primary" htmlType="submit" style={{width: "100%"}}>Create User</Button>    
                             </Form.Item>
                         </Form>
                     </Card>

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { message, Button, Card, Form, Icon, Input, Select } from 'antd';
+import { message, Button, Card, Form, Icon } from 'antd';
 import { withRouter, NavLink } from "react-router-dom";
 import '../style.css';
 import { http, handleErrors } from '../../services/http';
-const Option = Select.Option;
 
 class UserDetails extends Component {
 
@@ -13,6 +12,7 @@ class UserDetails extends Component {
             status: 0,
             name: '',
             email: '',
+            newPassword: '',
         }
     }
 
@@ -32,89 +32,81 @@ class UserDetails extends Component {
         })
     }
 
-    renderSessions(data) {
-        let d = data.map((a, i) => 
-            <Option value={a.id} key={i}>
-                {a.name}
-            </Option>
-        )
-
-        return (
-            d
-        )
-    }
-
-    getCategories() {
+    
+    regeneratePassword() {
         http(
-            `admin/categories`,
+            `admin/users/${this.props.match.params.id}`,
+            'PUT',
         )
         .then((r) => {
-            this.setState({categories: this.renderCategories(r.data.message)})
+            message.success('Password Regenerated Successfully', 3)
+            this.setState({
+                newPassword: 'New Password: ' + r.data.message.password
+            });
         })
         .catch((e) => {
+            message.error(e.response.data.error)
             console.log(e)
         })
     }
 
-    renderCategories(data) {
-        let d = data.map((a, i) => 
-            <Option value={a.id} key={i}>
-                {a.name}
-            </Option>
-        )
-
-        return (
-            d
-        )
-    }
-
-    getDepartments() {
+    activateUser() {
         http(
-            `admin/departments`,
+            `admin/users/activate/${this.props.match.params.id}`,
+            'PUT',
         )
         .then((r) => {
-            this.setState({sessions: this.renderDepartments(r.data.message)})
+            message.success(r.data.message, 3).then(() => {
+                window.document.location.reload();
+            })
         })
         .catch((e) => {
+            message.error(e.response.data.error)
             console.log(e)
         })
     }
 
-    renderDepartments(data) {
-        let d = data.map((a, i) => 
-            <Option value={a.id} key={i}>
-                {a.name}
-            </Option>
+    banUser() {
+        http(
+            `admin/users/ban/${this.props.match.params.id}`,
+            'PUT',
         )
-
-        return (
-            d
-        )
+        .then((r) => {
+            message.success(r.data.message, 3).then(() => {
+                window.document.location.reload();
+            })
+        })
+        .catch((e) => {
+            message.error(e.response.data.error)
+            console.log(e)
+        })
     }
 
+    deleteUser() {
+        http(
+            `admin/users/${this.props.match.params.id}`,
+            'DELETE'
+        )
+        .then((r) => {
+            message.success(r.data.message, 3).then(() => {
+                this.props.history.push('/admin/users')
+            })
+        })
+        .catch((e) => {
+            message.error(e.response.data.error)
+            console.log(e)
+        })
+    }
+
+    
     componentDidMount() {
-        this.getSessions()
-        this.getBook()
-        this.getCategories()
-        // this.getDepartments()
-    }
-
-    getBook() {
-        http(
-            `admin/books/${this.props.match.params.id}`,
-        )
-        .then((r) => {
-            
-        })
-        .catch((e) => {
-            console.log(e);
-        })
+        this.getUser()
     }
 
     statusCheck() {
         if(this.state.status === 1) {
             return (
-                <Button style={{
+                <Button onClick={() => this.banUser()} style={{
                     marginTop: '2em',
                     alignSelf: 'center',
                 }} type='danger'>
@@ -124,10 +116,10 @@ class UserDetails extends Component {
         }
 
         return (
-            <Button style={{
+            <Button onClick={() =>this.activateUser()} style={{
                 marginTop: '2em',
                 alignSelf: 'center',
-            }} type='success'>
+            }} type='primary'>
                 Activate
             </Button>
         );
@@ -174,25 +166,30 @@ class UserDetails extends Component {
     }
 
     render() {
-        const { getFieldDecorator } = this.props.form;
         return (
             <div>
                 <div className="content">
                     <Card className="edit-note">
-                        <h2> Update Book</h2> <Button> <NavLink to="/admin/users" style={{color: 'purple'}}><Icon type="caret-left" /> Go Back </NavLink></Button> <br />
-                        <Button style={{
+                        <h2> Manage User</h2> <Button> <NavLink to="/admin/users" style={{color: 'purple'}}><Icon type="caret-left" /> Go Back </NavLink></Button> <br />
+                        <p>Name: {this.state.name}</p>
+                        <p>Email: {this.state.email}</p>
+                        
+                        <Button onClick={() => this.regeneratePassword()} style={{
                             marginTop: '2em',
                             alignSelf: 'center',
                         }} type='ghost'>
                             Regenerate Password
                         </Button>
-                        
+                        <hr />
+                        {this.state.newPassword}
+                        <hr />
                         {this.statusCheck()}
-                        <Button style={{
+                        <hr />
+                        <Button onClick={() => this.deleteUser()} style={{
                             marginTop: '2em',
                             alignSelf: 'center',
-                        }}>
-                            Regenerate Password
+                        }} type='danger'>
+                            Delete Account
                         </Button>
                     </Card>
 
